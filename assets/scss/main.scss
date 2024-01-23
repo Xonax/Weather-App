@@ -1,0 +1,247 @@
+$yellow: #ffc62d;
+$light-blue: #3ecde0;
+$blue: #1d6ff2;
+$main-color: #191b1f;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	font-family: "SF Pro Display", sans-serif;
+	color: #fff;
+	margin: 0;
+}
+
+body {
+	background-color: #0e0f0f;
+	min-height: 100vh;
+	padding: 2rem;
+}
+
+header {
+	background-color: $main-color;
+	border-radius: 2rem;
+	min-height: calc(100vh - 32px * 2);
+	height: 100%;
+	@media screen and (max-width: 991px) {
+		& {
+			min-height: unset;
+		}
+	}
+	.logo {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-left: auto;
+		margin-right: auto;
+		text-decoration: none;
+		width: min-content;
+		color: #fff;
+		margin-block: 16px;
+	}
+	.signature {
+		margin-block: 16px;
+	}
+	.line {
+		background-color: #474747;
+		width: 100%;
+		height: 1px;
+		margin-bottom: 16px;
+	}
+	ul {
+		width: 100%;
+		padding: 0;
+		li {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			&::marker {
+				content: "";
+			}
+			width: 100%;
+			a {
+				&.active {
+					&::after {
+						content: "";
+						position: absolute;
+						width: 4px;
+						height: 100%;
+						left: 0;
+						border-top-right-radius: 6px;
+						border-bottom-right-radius: 6px;
+						background-color: #fff;
+						opacity: 1;
+					}
+					background: linear-gradient(
+						90deg,
+						rgba(255, 255, 255, 0.3) 0%,
+						rgba(255, 255, 255, 0) 100%
+					);
+				}
+				padding-block: 16px;
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				.white {
+					fill: #fff;
+				}
+				&::after {
+					content: "";
+					position: absolute;
+					width: 4px;
+					height: 100%;
+					left: 0;
+					border-top-right-radius: 6px;
+					border-bottom-right-radius: 6px;
+					background-color: #fff;
+					opacity: 0;
+				}
+				&:hover {
+					background: linear-gradient(
+						90deg,
+						rgba(255, 255, 255, 0.3) 0%,
+						rgba(255, 255, 255, 0) 100%
+					);
+					&::after {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}
+
+.first-cards {
+	h6 {
+		margin-block: 24px;
+	}
+	.card {
+		position: relative;
+		pre {
+			color: #fff;
+		}
+		h1 {
+			width: min-content;
+			position: relative;
+			span {
+				font-size: 36px;
+				position: absolute;
+				top: 0;
+				left: 100%;
+			}
+		}
+
+		.line {
+			height: 1px;
+			width: 100%;
+			background-color: #ffffff;
+			opacity: 0.2;
+			margin-block: 24px;
+		}
+		h1 {
+			font-size: 5rem;
+		}
+		img {
+			width: 86px;
+		}
+		.d-flex {
+			svg {
+				margin-right: 16px;
+			}
+		}
+		height: 100%;
+		padding: 24px;
+		width: 100%;
+		background-color: $main-color;
+		border-radius: 40px;
+	}
+	.forecast {
+		display: flex;
+		flex-direction: column;
+		padding: 0;
+		margin: 0;
+		height: 80%;
+		overflow: visible;
+		list-style: none;
+		&::after {
+			content: "";
+			border-radius: 40px;
+
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%; /* Set the height of the overlay */
+			background: linear-gradient(
+				rgba(255, 255, 255, 0) 40%,
+				rgba(25, 27, 31, 1) 80%
+			);
+		}
+		li {
+			margin-top: 24px;
+			grid-template-columns: minmax(64px, auto) repeat(3, 1fr);
+			align-items: center;
+			display: grid;
+			img {
+				height: 28px;
+				width: min-content;
+			}
+			h3 {
+				font-size: 24px;
+				span {
+					opacity: 0.6;
+					font-size: 18px;
+				}
+			}
+			.date,
+			.day {
+				opacity: 0.6;
+			}
+		}
+		@media (max-width: 991px) {
+			li {
+				grid-template-columns: 1fr 1fr;
+				text-align: center;
+
+				img {
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+	.tomorrow {
+		position: absolute;
+		bottom: 24px;
+		left: 24px;
+		width: calc(100% - 48px);
+		height: calc(20% + 2rem);
+		padding: 1rem;
+		border-radius: 2rem;
+		background-color: darken($color: $main-color, $amount: 3);
+		img {
+			object-fit: contain;
+		}
+
+		p {
+			opacity: 0.5;
+			font-size: 0.8rem;
+		}
+		p:last-of-type {
+			opacity: 1;
+			font-size: 0.65rem;
+		}
+	}
+}
+
+.chart-container {
+	position: relative;
+	width: 80vw;
+	height: 300px;
+	margin: 20px auto;
+}
